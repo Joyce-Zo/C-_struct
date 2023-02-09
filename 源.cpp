@@ -69,19 +69,51 @@ void AllocatorSpace(Teacher Tarray[], int size)
 	}
 }
 
-void Print(Teacher Tarray[],int size)
+//void Print(Teacher Tarray[],int size)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		cout << Tarray[i].Tname << endl;
+//		for (int j = 0; j < 5; j++)
+//		{
+//			cout << "\t";
+//			cout << Tarray[i].Sarray[j].Sname << " ";
+//			cout << Tarray[i].Sarray[j].score << endl;
+//		}
+//		cout << endl;
+//	}
+//}
+
+struct Hero
+{
+	string name;
+	int age;
+	string sex;
+};
+
+void BubbleSort(Hero HeroArray[], int size)
+{
+
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = 0; j < size - i - 1; j++)
+		{
+			if (HeroArray[j].age > HeroArray[j + 1].age)
+			{
+				Hero tmp = HeroArray[j];
+				HeroArray[j] = HeroArray[j + 1];
+				HeroArray[j + 1] = tmp;
+			}
+		}
+	}
+}
+void Print(Hero HeroArray[], int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		cout << Tarray[i].Tname << endl;
-		for (int j = 0; j < 5; j++)
-		{
-			cout << "\t";
-			cout << Tarray[i].Sarray[j].Sname << " ";
-			cout << Tarray[i].Sarray[j].score << endl;
-		}
-		cout << endl;
+		cout << HeroArray[i].name << " " << HeroArray[i].age << " " << HeroArray[i].sex << endl;
 	}
+	cout << endl;
 }
 int main()
 {
@@ -143,13 +175,29 @@ int main()
 	//Print2(&s1);	cout << endl;
 	//cout << s1.age << " " << s1.name << " " << s1.score;	
 
-	srand((unsigned int)time(NULL));	// 随机数种子
+	//srand((unsigned int)time(NULL));	// 随机数种子
 
-	Teacher Tarray[3];
-	int size = sizeof(Tarray) / sizeof(Tarray[0]);
+	//Teacher Tarray[3];
+	//int size = sizeof(Tarray) / sizeof(Tarray[0]);
 
-	AllocatorSpace(Tarray, size);
-	Print(Tarray,size);
+	//AllocatorSpace(Tarray, size);
+	//Print(Tarray,size);
+
+	struct Hero HeroArray[5]
+	{
+		{"刘备",23,"男"},
+		{"关羽",22,"男"},
+		{"张飞",20,"男"},
+		{"赵云",21,"男"},
+		{"貂蝉",19,"女"}
+	};
+	int size = sizeof(HeroArray) / sizeof(HeroArray[0]);
+
+	Print(HeroArray, size);
+	cout << "排序后：" << endl << endl;
+
+	BubbleSort(HeroArray, size);
+	Print(HeroArray,size);
 
 	return 0;
 }
