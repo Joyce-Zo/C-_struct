@@ -143,29 +143,13 @@ int main()
 	//Print2(&s1);	cout << endl;
 	//cout << s1.age << " " << s1.name << " " << s1.score;	
 
-	srand((unsigned int)time(NULL));
+	srand((unsigned int)time(NULL));	// 随机数种子
+
 	Teacher Tarray[3];
 	int size = sizeof(Tarray) / sizeof(Tarray[0]);
+
 	AllocatorSpace(Tarray, size);
-
 	Print(Tarray,size);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	return 0;
 }
